@@ -23,9 +23,7 @@ export function simulate<T>(
                     final_states.set(i, (final_states.get(i) || 0) + probability);
                 } else {
                     for (let [next_state, second_probability] of transition(state).entries()) {
-                        if (probability * second_probability > 0) {
-                            next_states.set(next_state, (next_states.get(next_state) || 0) + probability * second_probability);
-                        }
+                        next_states.set(next_state, (next_states.get(next_state) || 0) + probability * second_probability);
                     }
                 }
             }
