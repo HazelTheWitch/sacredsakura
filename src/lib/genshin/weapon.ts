@@ -1,22 +1,24 @@
+import { CanonMap } from "big-m";
+
 export type WeaponState = {pity: number, fate: number, limited: number, guaranteed: boolean};
 
-export function weapon_transition(state: WeaponState): Map<WeaponState, number> {
+export function weapon_transition(state: WeaponState): CanonMap<WeaponState, number> {
     const five_star_probability = Math.min(0.007 + 0.07 * Math.max(0, state.pity - 62), 1);
 
     if (state.fate >= 2) {
-        return new Map([
+        return new CanonMap([
             [no_drop(state), 1 - five_star_probability],
             [target_drop(state), five_star_probability],
         ]);
     } else {
         if (state.guaranteed) {
-            return new Map([
+            return new CanonMap([
                 [no_drop(state), 1 - five_star_probability],
                 [untarget_drop(state), five_star_probability * 0.5],
                 [target_drop(state), five_star_probability * 0.5],
             ]);
         } else {
-            return new Map([
+            return new CanonMap([
                 [no_drop(state), 1 - five_star_probability],
                 [standard_drop(state), five_star_probability * 0.25],
                 [untarget_drop(state), five_star_probability * 0.375],

@@ -1,15 +1,17 @@
+import { CanonMap } from "big-m";
+
 export type CharacterState = {pity: number, limited: number, guaranteed: boolean};
 
-export function character_transition(state: CharacterState): Map<CharacterState, number> {
+export function character_transition(state: CharacterState): CanonMap<CharacterState, number> {
     const five_star_probability = Math.min(0.006 + 0.06 * Math.max(0, state.pity - 72), 1);
 
     if (state.guaranteed) {
-        return new Map([
+        return new CanonMap([
             [no_drop(state), 1 - five_star_probability],
             [limited_drop(state), five_star_probability],
         ]);
     } else {
-        return new Map([
+        return new CanonMap([
             [no_drop(state), 1 - five_star_probability],
             [standard_drop(state), five_star_probability * 0.5],
             [limited_drop(state), five_star_probability * 0.5],

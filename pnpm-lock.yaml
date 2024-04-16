@@ -1,5 +1,10 @@
 lockfileVersion: '6.0'
 
+dependencies:
+  big-m:
+    specifier: ^7.0.0
+    version: 7.0.0
+
 devDependencies:
   '@sveltejs/adapter-auto':
     specifier: ^3.0.0
@@ -729,6 +734,10 @@ packages:
   /balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
     dev: true
+
+  /big-m@7.0.0:
+    resolution: {integrity: sha512-5tB0FL1V3O9J8I29rXGWWWPECnmpBiKq/MX+Y88zN0f4Ou87TiWRuZXi40RdyY3HT/9akqHhKkFuM7VvrqlFEQ==}
+    dev: false
 
   /binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
