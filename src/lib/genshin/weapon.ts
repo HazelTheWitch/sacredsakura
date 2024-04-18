@@ -28,7 +28,11 @@ export function weapon_transition(state: WeaponState): CanonMap<WeaponState, num
     }
 }
 
-export function character_goal(limited_count: number): (state: WeaponState) => boolean {
+export function weapon_initial(pity: number, fate: number, guaranteed: boolean): WeaponState {
+    return {pity, fate, limited: 0, guaranteed};
+}
+
+export function weapon_goal(limited_count: number): (state: WeaponState) => boolean {
     return (state: WeaponState) => { return state.limited >= limited_count };
 }
 

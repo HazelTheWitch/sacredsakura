@@ -19,6 +19,10 @@ export function character_transition(state: CharacterState): CanonMap<CharacterS
     }
 }
 
+export function character_initial(pity: number, guaranteed: boolean): CharacterState {
+    return {pity, limited: 0, guaranteed};
+}
+
 export function character_goal(limited_count: number): (state: CharacterState) => boolean {
     return (state: CharacterState) => { return state.limited >= limited_count };
 }
